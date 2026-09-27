@@ -3,32 +3,45 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
-.env
+*.egg-info/
+build/
+dist/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.coverage
+htmlcov/
 
-# ML data/artifacts
-data/
-ml/data/raw/
-ml/data/processed/
-ml/data/cache/
-ml/models/checkpoints/
-ml/models/*.pt
-ml/models/*.pth
-ml/models/*.safetensors
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# ML data/artifacts (root-anchored so unrelated folders named "data" are not hidden)
+/data/
+ml/data/
+ml/models/
 ml/runs/
 ml/outputs/
+ml/artifacts/
 outputs/
 logs/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
 *.npy
 *.npz
 *.pkl
 *.joblib
+# Small, intentionally committed test fixtures are allowed
+!tests/fixtures/**
+!ml/tests/fixtures/**
 
 # Frontend
 node_modules/
-dist/
+frontend/dist/
 .next/
 
 # IDE
@@ -40,5 +53,6 @@ dist/
 .DS_Store
 Thumbs.db
 
-# Local design docs — keep available locally but do not commit by default
+# Local-only agent instructions and design docs — never commit by default
+CLAUDE.md
 System-Design/

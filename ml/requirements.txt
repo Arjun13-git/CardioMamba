@@ -1,8 +1,0 @@
-torch
-numpy
-scipy
-pandas
-scikit-learn
-wfdb
-pyyaml
-matplotlib
