@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ML data/artifacts
+data/
+ml/data/raw/
+ml/data/processed/
+ml/data/cache/
+ml/models/checkpoints/
+ml/models/*.pt
+ml/models/*.pth
+ml/models/*.safetensors
+ml/runs/
+ml/outputs/
+outputs/
+logs/
+*.npy
+*.npz
+*.pkl
+*.joblib
+
+# Frontend
+node_modules/
+dist/
+.next/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local design docs — keep available locally but do not commit by default
+System-Design/
