@@ -1,0 +1,105 @@
+{
+  "label_mapping_version": "labels-superdiagnostic-v1",
+  "dataset_version": "PTB-XL 1.0.3",
+  "class_names": [
+    "NORM",
+    "MI",
+    "STTC",
+    "CD",
+    "HYP"
+  ],
+  "rule": "scp_codes keys with scp_statements.diagnostic == 1 mapped via diagnostic_class; likelihood ignored; records with no superclass excluded",
+  "split_folds": {
+    "train": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "val": [
+      9
+    ],
+    "test": [
+      10
+    ]
+  },
+  "code_to_superclass": {
+    "1AVB": "CD",
+    "2AVB": "CD",
+    "3AVB": "CD",
+    "ALMI": "MI",
+    "AMI": "MI",
+    "ANEUR": "STTC",
+    "ASMI": "MI",
+    "CLBBB": "CD",
+    "CRBBB": "CD",
+    "DIG": "STTC",
+    "EL": "STTC",
+    "ILBBB": "CD",
+    "ILMI": "MI",
+    "IMI": "MI",
+    "INJAL": "MI",
+    "INJAS": "MI",
+    "INJIL": "MI",
+    "INJIN": "MI",
+    "INJLA": "MI",
+    "IPLMI": "MI",
+    "IPMI": "MI",
+    "IRBBB": "CD",
+    "ISCAL": "STTC",
+    "ISCAN": "STTC",
+    "ISCAS": "STTC",
+    "ISCIL": "STTC",
+    "ISCIN": "STTC",
+    "ISCLA": "STTC",
+    "ISC_": "STTC",
+    "IVCD": "CD",
+    "LAFB": "CD",
+    "LAO/LAE": "HYP",
+    "LMI": "MI",
+    "LNGQT": "STTC",
+    "LPFB": "CD",
+    "LVH": "HYP",
+    "NDT": "STTC",
+    "NORM": "NORM",
+    "NST_": "STTC",
+    "PMI": "MI",
+    "RAO/RAE": "HYP",
+    "RVH": "HYP",
+    "SEHYP": "HYP",
+    "WPW": "CD"
+  },
+  "support": {
+    "train": {
+      "labelled_records": 17084,
+      "excluded_no_superclass": 334,
+      "NORM": 7596,
+      "MI": 4379,
+      "STTC": 4186,
+      "CD": 3907,
+      "HYP": 2119
+    },
+    "val": {
+      "labelled_records": 2146,
+      "excluded_no_superclass": 37,
+      "NORM": 955,
+      "MI": 540,
+      "STTC": 528,
+      "CD": 495,
+      "HYP": 268
+    },
+    "test": {
+      "labelled_records": 2158,
+      "excluded_no_superclass": 40,
+      "NORM": 963,
+      "MI": 550,
+      "STTC": 521,
+      "CD": 496,
+      "HYP": 262
+    }
+  }
+}
