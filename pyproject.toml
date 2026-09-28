@@ -47,4 +47,4 @@ line-length = 100
 target-version = "py312"
 
 [tool.ruff.lint.isort]
-known-first-party = ["cardiomamba", "conftest"]
+known-first-party = ["cardiomamba", "conftest", "training_helpers"]
