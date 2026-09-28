@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* CardioMamba research-dashboard theme (dark only).
+   Chart colours validated with the dataviz palette validator against --surface (#0f1620):
+   series blue #3987e5 / orange #d95926 (CVD ΔE 26.8), data teal #22a393. */
+:root {
+  color-scheme: dark;
+  --bg: #080c11;
+  --surface: #0f1620;
+  --surface-2: #141d29;
+  --border: #1f2a37;
+  --border-strong: #2c3a4b;
+  --grid: #1b2531;
+  --text-primary: #e7edf3;
+  --text-secondary: #a3b1c0;
+  --text-muted: #6f8092;
+  --accent: #2dd4bf;       /* UI accent (buttons, focus, highlights) */
+  --data-teal: #22a393;    /* data marks: ECG traces, probability bars */
+  --series-blue: #3987e5;
+  --series-orange: #d95926;
+  --warn: #e9b949;
+  --danger: #f07b7b;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-ink: var(--text-primary);
+  --color-ink-2: var(--text-secondary);
+  --color-ink-3: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-teal: var(--data-teal);
+  --color-blue: var(--series-blue);
+  --color-orange: var(--series-orange);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(45, 212, 191, 0.07), transparent 60%),
+    radial-gradient(900px 500px at -10% 10%, rgba(57, 135, 229, 0.06), transparent 60%),
+    var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: rgba(45, 212, 191, 0.3);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Faint ECG-paper grid used behind hero/cards (decorative). */
+.ecg-grid {
+  background-image:
+    linear-gradient(rgba(45, 212, 191, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@keyframes trace {
+  from { stroke-dashoffset: var(--len, 2000); }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
