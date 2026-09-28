@@ -1,0 +1,61 @@
+{
+  "provenance": "PTB-XL 1.0.3 (PhysioNet, Wagner et al., CC BY 4.0), fold 10 (held-out test fold); not newly collected ECGs",
+  "selection_rule": "per class: lowest ecg_id in fold 10 with exactly that single superclass and no signal-quality flags (independent of model predictions)",
+  "samples": [
+    {
+      "id": "ptbxl-40",
+      "file": "/demo/ptbxl-00040-norm.csv",
+      "ecg_id": 40,
+      "fold": 10,
+      "reference_labels": [
+        "NORM"
+      ],
+      "sampling_rate_hz": 500,
+      "samples": 5000
+    },
+    {
+      "id": "ptbxl-430",
+      "file": "/demo/ptbxl-00430-mi.csv",
+      "ecg_id": 430,
+      "fold": 10,
+      "reference_labels": [
+        "MI"
+      ],
+      "sampling_rate_hz": 500,
+      "samples": 5000
+    },
+    {
+      "id": "ptbxl-160",
+      "file": "/demo/ptbxl-00160-sttc.csv",
+      "ecg_id": 160,
+      "fold": 10,
+      "reference_labels": [
+        "STTC"
+      ],
+      "sampling_rate_hz": 500,
+      "samples": 5000
+    },
+    {
+      "id": "ptbxl-65",
+      "file": "/demo/ptbxl-00065-cd.csv",
+      "ecg_id": 65,
+      "fold": 10,
+      "reference_labels": [
+        "CD"
+      ],
+      "sampling_rate_hz": 500,
+      "samples": 5000
+    },
+    {
+      "id": "ptbxl-1219",
+      "file": "/demo/ptbxl-01219-hyp.csv",
+      "ecg_id": 1219,
+      "fold": 10,
+      "reference_labels": [
+        "HYP"
+      ],
+      "sampling_rate_hz": 500,
+      "samples": 5000
+    }
+  ]
+}

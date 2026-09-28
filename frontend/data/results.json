@@ -1,0 +1,76 @@
+{
+  "source": "outputs/cardiomamba/full-30ep-seed42/test_metrics.json",
+  "split": "test (PTB-XL 1.0.3 fold 10)",
+  "n_records": 2158,
+  "n_patients": 1877,
+  "checkpoint_epoch": 5,
+  "evaluated_at": "2026-09-28T22:11:11+05:30",
+  "overall": {
+    "macro_auroc": 0.9222927616492529,
+    "macro_auprc": 0.8121252301968083,
+    "macro_f1": 0.7416550749321281,
+    "micro_f1": 0.7764625150111512,
+    "macro_precision": 0.7222239185487698,
+    "macro_recall": 0.7672710831050354,
+    "micro_precision": 0.7451432334540665,
+    "micro_recall": 0.8105300859598854
+  },
+  "per_class": {
+    "NORM": {
+      "auroc": 0.9434412162132805,
+      "auprc": 0.9256823261028373,
+      "precision": 0.8034420289855072,
+      "recall": 0.9210799584631361,
+      "f1": 0.8582486695694242,
+      "support": 963,
+      "predicted_positive": 1104,
+      "threshold": 0.38
+    },
+    "MI": {
+      "auroc": 0.925204658525554,
+      "auprc": 0.834309603286824,
+      "precision": 0.6845329249617151,
+      "recall": 0.8127272727272727,
+      "f1": 0.743142144638404,
+      "support": 550,
+      "predicted_positive": 653,
+      "threshold": 0.26
+    },
+    "STTC": {
+      "auroc": 0.930249027702705,
+      "auprc": 0.8094171176175303,
+      "precision": 0.7137989778534923,
+      "recall": 0.8042226487523992,
+      "f1": 0.7563176895306859,
+      "support": 521,
+      "predicted_positive": 587,
+      "threshold": 0.41
+    },
+    "CD": {
+      "auroc": 0.9187355644190831,
+      "auprc": 0.8485373052813674,
+      "precision": 0.8256880733944955,
+      "recall": 0.7258064516129032,
+      "f1": 0.7725321888412017,
+      "support": 496,
+      "predicted_positive": 436,
+      "threshold": 0.35
+    },
+    "HYP": {
+      "auroc": 0.8938333413856412,
+      "auprc": 0.6426797986954828,
+      "precision": 0.5836575875486382,
+      "recall": 0.5725190839694656,
+      "f1": 0.5780346820809249,
+      "support": 262,
+      "predicted_positive": 257,
+      "threshold": 0.27
+    }
+  },
+  "validation_reference": {
+    "macro_auroc": 0.9263882715916758,
+    "macro_auprc": 0.8097825287331457,
+    "macro_f1_calibrated": 0.7471842567105249,
+    "micro_f1_calibrated": 0.7787732598208132
+  }
+}

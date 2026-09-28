@@ -1,0 +1,42 @@
+{
+  "source": "outputs/cardiomamba/full-30ep-seed42/best.pt",
+  "config": {
+    "input_channels": 12,
+    "input_length": 1000,
+    "patch_size": 4,
+    "patch_stride": 4,
+    "d_model": 128,
+    "n_layers": 4,
+    "d_state": 16,
+    "d_conv": 4,
+    "expand": 2,
+    "dt_rank": 8,
+    "bidirectional": true,
+    "dropout": 0.1,
+    "num_classes": 5,
+    "dt_min": 0.001,
+    "dt_max": 0.1,
+    "dt_init_floor": 0.0001,
+    "rms_norm_eps": 1e-05,
+    "scan_mode": "parallel",
+    "checkpoint_blocks": true
+  },
+  "parameters": 939397,
+  "checkpoint_epoch": 5,
+  "class_order": [
+    "NORM",
+    "MI",
+    "STTC",
+    "CD",
+    "HYP"
+  ],
+  "preprocessing_version": "prep-v1",
+  "thresholds": {
+    "NORM": 0.38,
+    "MI": 0.26,
+    "STTC": 0.41,
+    "CD": 0.35,
+    "HYP": 0.27
+  },
+  "thresholds_source": "per-class F1 maximisation on the validation split (fold 9); ties -> threshold closest to 0.5"
+}
