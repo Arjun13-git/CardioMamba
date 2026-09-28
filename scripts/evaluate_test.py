@@ -56,6 +56,8 @@ from cardiomamba.training.metrics import compute_metrics, confusion_counts
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RUN_DIR = REPO_ROOT / "outputs" / "cardiomamba" / "full-30ep-seed42"
+# Everything that determines the model's outputs; must be unchanged since training.
+MODEL_PATHS = ("ml/src", "ml/configs", "pyproject.toml", "uv.lock")
 EXPECTED = {
     "checkpoint_epoch": 5,
     "test_records": 2158,
@@ -113,10 +115,12 @@ def integrity_checks(run_dir: Path) -> tuple[Checks, dict]:
           and CardioMambaConfig(**ckpt["model_config"]).d_model == 128)
     head = git("rev-parse", "HEAD")
     tracked_dirty = git("status", "--porcelain", "--untracked-files=no")
-    c.add("tracked source/config files identical to the training commit",
-          head == env["git"]["commit"] and not tracked_dirty and env["git"]["dirty"] is False,
-          f"HEAD {head[:7]} == training {env['git']['commit'][:7]}; tracked changes: "
-          f"{'none' if not tracked_dirty else tracked_dirty}")
+    changed = git("diff", "--name-only", env["git"]["commit"], "HEAD", "--", *MODEL_PATHS)
+    c.add("model/preprocessing code and configs identical to the training commit",
+          not changed and not tracked_dirty and env["git"]["dirty"] is False,
+          f"HEAD {head[:7]}, training {env['git']['commit'][:7]}; changed since training in "
+          f"{list(MODEL_PATHS)}: {changed or 'none'}; uncommitted tracked changes: "
+          f"{tracked_dirty or 'none'}")
 
     # 9 frozen train-derived normalization statistics
     stats_path = REPO_ROOT / ckpt["normalization_stats"]
