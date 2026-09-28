@@ -1,0 +1,48 @@
+[project]
+name = "cardiomamba-api"
+version = "0.1.0"
+description = "Inference-only FastAPI service for the frozen CardioMamba model (research/educational demo)."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "cardiomamba",
+    "torch==2.13.0",  # direct so the cu130 index source applies (same build as training)
+    "fastapi[standard]>=0.120",
+    "pydantic-settings>=2.6",
+]
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.13.1",
+    "pytest>=8.4",
+]
+
+[tool.uv]
+package = false
+# Identical numerics to the frozen training environment (root uv.lock).
+constraint-dependencies = [
+    "torch==2.13.0",
+    "numpy==2.5.3",
+    "scipy==1.18.1",
+    "pandas==2.3.3",
+    "wfdb==4.3.1",
+    "scikit-learn==1.9.1",
+]
+
+[tool.uv.sources]
+cardiomamba = { path = "..", editable = true }
+torch = { index = "pytorch-cu130" }
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+extend = "../pyproject.toml"
+
+[tool.ruff.lint.isort]
+known-first-party = ["app", "cardiomamba"]
